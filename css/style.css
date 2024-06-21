@@ -252,12 +252,12 @@ h6,
     }
 
     .carousel-item img {
-        height: 80vh;
+        height: 60vh;
         object-fit: cover;
     }
 
     .carousel-item video {
-        height: 80vh;
+        height: 60vh;
         object-fit: cover;
     }
 }
