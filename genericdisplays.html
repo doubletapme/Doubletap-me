@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Generic Displays - DoubleTap</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .dropdown-menu .dropdown-item.active {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+        .product-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .brand-description {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 40px;
+        }
+        .sub-brand-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .sub-brand-logo {
+            max-width: 120px;
+            max-height: 80px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        .sub-brand-logo:hover {
+            filter: grayscale(0%);
+        }
+        .media-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .media-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .media-item:hover {
+            transform: scale(1.05);
+        }
+        .media-item img, .media-item video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .video-overlay {
+            position: relative;
+        }
+        .video-overlay::after {
+            content: '\f04b';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2rem;
+            background: rgba(0,0,0,0.7);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar & Header Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand p-0">
+                <img src="img/logo-regular.png.png" alt="Your Company Name" class="img-fluid">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="index.html#about" class="nav-item nav-link">About</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Products</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="aver.html" class="dropdown-item">AVer</a>
+                            <a href="screenbeam.html" class="dropdown-item">ScreenBeam</a>
+                            <a href="loop24.html" class="dropdown-item">Loop24</a>
+                            <a href="IPEVO.html" class="dropdown-item">IPEVO</a>
+                            <a href="aegisav.html" class="dropdown-item">AegisAV</a>
+                            <a href="bxb.html" class="dropdown-item">BXB</a>
+                            <a href="wedoinnov.html" class="dropdown-item">WeDoInnov</a>
+                            <a href="genericdisplays.html" class="dropdown-item active">Generic Displays</a>
+                        </div>
+                    </div>
+                    <a href="index.html#contact" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid bg-primary py-5 bg-header">
+            <div class="row py-5">
+                <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+                    <h1 class="display-4 text-white animated zoomIn">Generic Displays</h1>
+                    <a href="index.html" class="h5 text-white">Home</a>
+                    <i class="far fa-circle text-white px-2"></i>
+                    <a href="" class="h5 text-white">Generic Displays</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar & Header End -->
+
+    <!-- Brand Description Section Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="brand-description">
+                <div class="text-center">
+                    <h2 class="mb-4 text-primary">Generic Displays Solutions</h2>
+                    <p class="lead mb-4">Generic Displays represents a comprehensive portfolio of cutting-edge display technologies and interactive solutions designed to meet diverse business and educational needs. Our multi-brand approach ensures access to the latest innovations in display technology.</p>
+                    <p class="mb-4">Partnering with leading manufacturers, we provide a wide range of display solutions including interactive panels, digital signage, collaborative displays, and specialized presentation systems. Our commitment to quality and innovation drives us to deliver exceptional visual communication experiences.</p>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6 class="text-primary"><i class="fa fa-check text-primary me-2"></i>Interactive Technology</h6>
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="text-primary"><i class="fa fa-check text-primary me-2"></i>Multi-Brand Portfolio</h6>
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="text-primary"><i class="fa fa-check text-primary me-2"></i>Advanced Solutions</h6>
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="text-primary"><i class="fa fa-check text-primary me-2"></i>Professional Support</h6>
+                        </div>
+                    </div>
+                    <!-- Sub-brand Logos -->
+                    <div class="sub-brand-logos">
+                        <img src="img/Generic Displays/Logos/AIMV.jpg" alt="AIMV" class="sub-brand-logo">
+                        <img src="img/Generic Displays/Logos/Asianda.jpg" alt="Asianda" class="sub-brand-logo">
+                        <img src="img/Generic Displays/Logos/IKinor.jpg" alt="IKinor" class="sub-brand-logo">
+                        <img src="img/Generic Displays/Logos/IQboard.jpg" alt="IQboard" class="sub-brand-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Brand Description Section End -->
+
+    <!-- Media Gallery Section Start -->
+    <div class="container-fluid py-5 bg-light">
+        <div class="container">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase">Display Gallery</h5>
+            </div>
+            <div class="media-gallery">
+                <!-- Images -->
+                <div class="media-item">
+                    <img src="img/Generic Displays/Generic Displays (1).png" alt="Generic Display 1" loading="lazy">
+                </div>
+                <div class="media-item">
+                    <img src="img/Generic Displays/Generic Displays (2).png" alt="Generic Display 2" loading="lazy">
+                </div>
+                <div class="media-item">
+                    <img src="img/Generic Displays/Generic Displays (3).png" alt="Generic Display 3" loading="lazy">
+                </div>
+                <div class="media-item">
+                    <img src="img/Generic Displays/Generic Displays (4).png" alt="Generic Display 4" loading="lazy">
+                </div>
+                <div class="media-item">
+                    <img src="img/Generic Displays/Generic Displays (5).png" alt="Generic Display 5" loading="lazy">
+                </div>
+                <div class="media-item">
+                    <img src="img/Generic Displays/Generic Displays (6).png" alt="Generic Display 6" loading="lazy">
+                </div>
+                <div class="media-item">
+                    <img src="img/Generic Displays/Generic Displays (7).png" alt="Generic Display 7" loading="lazy">
+                </div>
+                <div class="media-item">
+                    <img src="img/Generic Displays/Generic Displays (8).png" alt="Generic Display 8" loading="lazy">
+                </div>
+                <div class="media-item">
+                    <img src="img/Generic Displays/Generic Displays (1).jpg" alt="Generic Display 9" loading="lazy">
+                </div>
+                <div class="media-item">
+                    <img src="img/Generic Displays/Generic Displays (2).jpg" alt="Generic Display 10" loading="lazy">
+                </div>
+                <!-- Videos -->
+                <div class="media-item video-overlay">
+                    <video controls poster="img/Generic Displays/Generic Displays (1).png">
+                        <source src="img/Generic Displays/Generic Displays (1).mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="media-item video-overlay">
+                    <video controls poster="img/Generic Displays/Generic Displays (2).png">
+                        <source src="img/Generic Displays/Generic Displays (2).mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="media-item video-overlay">
+                    <video controls poster="img/Generic Displays/Generic Displays (3).png">
+                        <source src="img/Generic Displays/Generic Displays (3).mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Media Gallery Section End -->
+
+    <!-- Product Categories Section Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 700px;">
+                <h5 class="fw-bold text-primary text-uppercase">Display Solutions</h5>
+                <h1 class="mb-0">Comprehensive Display Portfolio</h1>
+            </div>
+            <div class="row g-4">
+                <!-- Interactive Displays -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="product-card p-4">
+                        <h5 class="text-center mb-3">Interactive Displays</h5>
+                        <h6 class="text-muted text-center mb-3">Touch & Collaboration</h6>
+                        <p class="text-muted text-center">Advanced interactive display solutions featuring multi-touch capabilities, collaboration tools, and seamless integration for modern workspaces.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-check text-primary me-2"></i>Multi-touch Technology</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>4K Ultra HD Resolution</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>Wireless Connectivity</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>Collaboration Software</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Digital Signage -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="product-card p-4">
+                        <h5 class="text-center mb-3">Digital Signage</h5>
+                        <h6 class="text-muted text-center mb-3">Dynamic Content Display</h6>
+                        <p class="text-muted text-center">Professional digital signage solutions for advertising, information display, and brand communication in various environments.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-check text-primary me-2"></i>Content Management</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>Remote Monitoring</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>Scheduled Playback</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>Cloud Integration</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Educational Displays -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="product-card p-4">
+                        <h5 class="text-center mb-3">Educational Displays</h5>
+                        <h6 class="text-muted text-center mb-3">Learning Enhancement</h6>
+                        <p class="text-muted text-center">Specialized display solutions designed for educational environments, enhancing learning experiences and classroom interaction.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-check text-primary me-2"></i>Interactive Learning</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>Educational Software</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>Student Engagement</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>Easy Installation</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Commercial Displays -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="product-card p-4">
+                        <h5 class="text-center mb-3">Commercial Displays</h5>
+                        <h6 class="text-muted text-center mb-3">Business Solutions</h6>
+                        <p class="text-muted text-center">Robust commercial display solutions built for continuous operation in demanding business environments and public spaces.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-check text-primary me-2"></i>24/7 Operation</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>High Brightness</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>Durable Construction</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>Easy Maintenance</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Video Walls -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.9s">
+                    <div class="product-card p-4">
+                        <h5 class="text-center mb-3">Video Walls</h5>
+                        <h6 class="text-muted text-center mb-3">Large Format Solutions</h6>
+                        <p class="text-muted text-center">Impressive video wall solutions for command centers, retail environments, and corporate lobbies requiring large-scale visual impact.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-check text-primary me-2"></i>Seamless Bezels</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>Scalable Configuration</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>Central Control</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>Flexible Layout</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Outdoor Displays -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="1.1s">
+                    <div class="product-card p-4">
+                        <h5 class="text-center mb-3">Outdoor Displays</h5>
+                        <h6 class="text-muted text-center mb-3">Weather Resistant</h6>
+                        <p class="text-muted text-center">Weatherproof outdoor display solutions designed to withstand harsh environmental conditions while delivering brilliant visuals.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-check text-primary me-2"></i>Weather Protection</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>High Brightness LED</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>Anti-Glare Coating</li>
+                            <li><i class="fa fa-check text-primary me-2"></i>Temperature Control</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product Categories Section End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-primary p-4">
+                        <a href="index.html" class="navbar-brand">
+                            <h1 class="m-0 text-white"><i class=""></i>Doubletap</h1>
+                        </a>
+                        <p class="mt-3 mb-4">DoubleTap ME LLC, founded in Dubai, aims to revolutionize communication and collaboration in the Middle East with innovative solutions, becoming a trusted partner for companies by enhancing business communication, streamlining operations, and fostering collaboration through cutting-edge technology, driven by a commitment to excellence, customer satisfaction, and shaping the future of digital interaction.</p>
+
+                        <!-- FormSubmit.co Form Integration -->
+                        <form action="https://formsubmit.co/sales@doubletapme.com" method="POST">
+                            <div class="input-group">
+                                <input type="email" name="email" class="form-control border-white p-3" placeholder="Your Email" required>
+                                <button type="submit" class="btn btn-dark">Sign Up</button>
+                            </div>
+                        </form>
+                        <!-- End FormSubmit.co Form -->
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="row gx-5">
+                        <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                                <h3 class="text-light mb-0">Get In Touch</h3>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-envelope-open text-primary me-2"></i>
+                                <p class="mb-0">sales@doubletapme.com</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-telephone text-primary me-2"></i>
+                                <p class="mb-0">+971544582758</p>
+                            </div>
+                            <div class="d-flex mt-4">
+                                <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square" href="https://wa.me/971544582758" target="_blank"><i class="fab fa-whatsapp fw-normal"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                                <h3 class="text-light mb-0">Our Offices</h3>
+                            </div>
+                            <div class="mb-4">
+                                <h5 class="text-primary">Bahrain Office</h5>
+                                <p class="mb-1">Office 2, Building 2750</p>
+                                <p class="mb-1">Road 3649, Seef Block 436</p>
+                                <p class="mb-1">Kingdom of Bahrain</p>
+                                <p class="mb-1">+973 3234 3388</p>
+                                <p class="mb-1">sales@doubletapme.com</p>
+                            </div>
+                            <div class="mb-4">
+                                <h5 class="text-primary">Spain Office</h5>
+                                <p class="mb-1">Calle Beniparrell 33 bajo derecha</p>
+                                <p class="mb-1">Albal, Valencia</p>
+                                <p class="mb-1">Espana</p>
+                                <p class="mb-1">+34655416828</p>
+                                <p class="mb-1">sales@doubletapme.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid text-white" style="background: #061429;">
+        <div class="container text-center">
+            <div class="row justify-content-end">
+                <div class="col-lg-8 col-md-6">
+                    <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
+                        <p class="mb-0">&copy; <a class="text-white border-bottom" href="#">Doubletapme</a>. All Rights Reserved. 
+                        
+                        <!--/*** This template is free as long as you keep the footer author's credit link/attribution link/backlink. If you'd like to use the template without the footer author's credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed by <a class="text-white border-bottom" href="https://nivadaily.com">Niva Media Solutions</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
