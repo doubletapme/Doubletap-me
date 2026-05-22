@@ -9,13 +9,12 @@
 
 /* Global Reset */
 body {
-    background-color: var(--dark);
-    background-image:
-        radial-gradient(circle at 20% 20%, rgba(62,166,255,0.12) 0%, transparent 60%),
-        radial-gradient(circle at 80% 80%, rgba(62,166,255,0.08) 0%, transparent 60%);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: radial-gradient(circle at top left, rgba(62,166,255,0.18), rgba(13,15,18,1) 60%);
+    color: var(--light);
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.6;
 }
+
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
