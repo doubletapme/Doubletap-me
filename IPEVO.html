@@ -468,6 +468,15 @@
 
 <!-- Template Javascript -->
 <script src="js/main.js"></script>
+<script>
+document.addEventListener("mousemove", function(e) {
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+    document.documentElement.style.setProperty("--mx", x);
+    document.documentElement.style.setProperty("--my", y);
+});
+</script>
+
 </body>
 
 </html>
