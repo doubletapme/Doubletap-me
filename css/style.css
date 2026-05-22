@@ -1,24 +1,24 @@
 /********** DARK CORPORATE THEME — BASE **********/
 
 :root {
-    --primary: #3ea6ff;      /* Electric blue accent */
-    --secondary: #1f2933;    /* Dark card surface */
-    --light: #e5e5e5;        /* Light text */
-    --dark: #0d0f12;         /* Main dark background */
+    --primary: #3ea6ff;
+    --secondary: #1f2933;
+    --light: #e5e5e5;
+    --dark: #0d0f12;
 
     /* Mouse reactive variables */
     --mx: 0.5;
     --my: 0.5;
 }
 
-/* ⚡ Lightning Pulse Animation (background only) */
+/* ⚡ Lightning Pulse Animation */
 @keyframes lightningPulse {
     0% { opacity: 0.35; }
     50% { opacity: 0.55; }
     100% { opacity: 0.35; }
 }
 
-/* ⚡ BACKGROUND LAYER (stable content) */
+/* Base body */
 body {
     background: var(--dark);
     color: var(--light);
@@ -28,7 +28,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ⚡ Lightning Mesh Background (pseudo-element) */
+/* ⚡ STRONG MOUSE‑REACTIVE LIGHTNING BACKGROUND */
 body::before {
     content: "";
     position: fixed;
@@ -40,21 +40,21 @@ body::before {
     z-index: -1;
 
     background-image:
-        /* Lightning energy bursts */
-        radial-gradient(circle at calc(12% + var(--mx) * 10%) calc(18% + var(--my) * 10%), rgba(62,166,255,0.45) 0%, transparent 70%),
-        radial-gradient(circle at calc(85% - var(--mx) * 10%) calc(82% - var(--my) * 10%), rgba(62,166,255,0.40) 0%, transparent 70%),
-        radial-gradient(circle at calc(70% + var(--mx) * 5%) calc(25% + var(--my) * 5%), rgba(62,166,255,0.30) 0%, transparent 75%),
-        radial-gradient(circle at calc(30% - var(--mx) * 5%) calc(75% - var(--my) * 5%), rgba(62,166,255,0.28) 0%, transparent 75%),
+        /* Strong lightning bursts */
+        radial-gradient(circle at calc(10% + var(--mx) * 25%) calc(15% + var(--my) * 25%), rgba(62,166,255,0.55) 0%, transparent 70%),
+        radial-gradient(circle at calc(90% - var(--mx) * 25%) calc(85% - var(--my) * 25%), rgba(62,166,255,0.50) 0%, transparent 70%),
+        radial-gradient(circle at calc(70% + var(--mx) * 20%) calc(25% + var(--my) * 20%), rgba(62,166,255,0.40) 0%, transparent 75%),
+        radial-gradient(circle at calc(30% - var(--mx) * 20%) calc(75% - var(--my) * 20%), rgba(62,166,255,0.38) 0%, transparent 75%),
 
-        /* Lightning streaks */
-        linear-gradient(115deg, rgba(62,166,255,0.25) 0%, transparent 60%),
-        linear-gradient(295deg, rgba(62,166,255,0.22) 0%, transparent 65%),
-        linear-gradient(45deg, rgba(62,166,255,0.18) 0%, transparent 70%),
-        linear-gradient(225deg, rgba(62,166,255,0.15) 0%, transparent 75%),
+        /* Strong lightning streaks */
+        linear-gradient(115deg, rgba(62,166,255,0.35) 0%, transparent 60%),
+        linear-gradient(295deg, rgba(62,166,255,0.32) 0%, transparent 65%),
+        linear-gradient(45deg, rgba(62,166,255,0.28) 0%, transparent 70%),
+        linear-gradient(225deg, rgba(62,166,255,0.25) 0%, transparent 75%),
 
-        /* Subtle mesh glow */
-        linear-gradient(135deg, rgba(62,166,255,0.12) 0%, transparent 80%),
-        linear-gradient(315deg, rgba(62,166,255,0.10) 0%, transparent 85%);
+        /* Glow mesh */
+        linear-gradient(135deg, rgba(62,166,255,0.18) 0%, transparent 80%),
+        linear-gradient(315deg, rgba(62,166,255,0.15) 0%, transparent 85%);
 
     background-blend-mode: screen;
     background-attachment: fixed;
