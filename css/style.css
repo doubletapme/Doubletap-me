@@ -42,9 +42,6 @@ body {
     background-blend-mode: screen;
     background-attachment: fixed;
 
-    /* ⚡ Add animation */
-    animation: lightningPulse 6s ease-in-out infinite;
-
     color: var(--light);
     font-family: 'Nunito', sans-serif;
     line-height: 1.6;
