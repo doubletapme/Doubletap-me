@@ -9,10 +9,9 @@
 
 /* Global Reset */
 body {
-    background-color: var(--dark);
+    background: linear-gradient(135deg, #0d0f12 0%, #0d1a24 40%, #0a2a3d 70%, #3ea6ff 100%);
+    background-attachment: fixed;
     color: var(--light);
-    font-family: 'Nunito', sans-serif;
-    line-height: 1.6;
 }
 
 /* Headings */
