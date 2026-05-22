@@ -5,35 +5,57 @@
     --secondary: #1f2933;    /* Dark card surface */
     --light: #e5e5e5;        /* Light text */
     --dark: #0d0f12;         /* Main dark background */
+
+    /* Mouse reactive variables */
+    --mx: 0.5;
+    --my: 0.5;
 }
 
-/* Global Reset */
+/* ⚡ Lightning Pulse Animation */
+@keyframes lightningPulse {
+    0% { opacity: 0.25; transform: scale(1); filter: blur(0px); }
+    50% { opacity: 0.55; transform: scale(1.03); filter: blur(2px); }
+    100% { opacity: 0.25; transform: scale(1); filter: blur(0px); }
+}
+
+/* Global Reset + Lightning Mesh Background */
 body {
     background-color: #0d0f12;
+
+    /* ⚡ Mouse‑reactive lightning mesh */
     background-image:
-        radial-gradient(circle at 10% 20%, rgba(62,166,255,0.35) 0%, transparent 70%),
-        radial-gradient(circle at 90% 80%, rgba(62,166,255,0.30) 0%, transparent 70%),
-        linear-gradient(120deg, rgba(62,166,255,0.20) 0%, transparent 60%),
-        linear-gradient(300deg, rgba(62,166,255,0.20) 0%, transparent 60%),
-        linear-gradient(60deg, rgba(62,166,255,0.15) 0%, transparent 70%);
+        radial-gradient(circle at calc(12% + var(--mx) * 10%) calc(18% + var(--my) * 10%), rgba(62,166,255,0.45) 0%, transparent 70%),
+        radial-gradient(circle at calc(85% - var(--mx) * 10%) calc(82% - var(--my) * 10%), rgba(62,166,255,0.40) 0%, transparent 70%),
+        radial-gradient(circle at calc(70% + var(--mx) * 5%) calc(25% + var(--my) * 5%), rgba(62,166,255,0.30) 0%, transparent 75%),
+        radial-gradient(circle at calc(30% - var(--mx) * 5%) calc(75% - var(--my) * 5%), rgba(62,166,255,0.28) 0%, transparent 75%),
+
+        /* Lightning streaks */
+        linear-gradient(115deg, rgba(62,166,255,0.25) 0%, transparent 60%),
+        linear-gradient(295deg, rgba(62,166,255,0.22) 0%, transparent 65%),
+        linear-gradient(45deg, rgba(62,166,255,0.18) 0%, transparent 70%),
+        linear-gradient(225deg, rgba(62,166,255,0.15) 0%, transparent 75%),
+
+        /* Subtle mesh glow */
+        linear-gradient(135deg, rgba(62,166,255,0.12) 0%, transparent 80%),
+        linear-gradient(315deg, rgba(62,166,255,0.10) 0%, transparent 85%);
+
     background-blend-mode: screen;
     background-attachment: fixed;
+
+    /* ⚡ Add animation */
+    animation: lightningPulse 6s ease-in-out infinite;
+
+    color: var(--light);
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.6;
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
-    color: #ffffff;
-}
+h1, h2, h3, h4, h5, h6 { color: #ffffff; }
 
 /* Links */
-a {
-    color: var(--primary);
-    transition: 0.3s ease;
-}
-
-a:hover {
-    color: #7fc8ff;
-}
+a { color: var(--primary); transition: 0.3s ease; }
+a:hover { color: #7fc8ff; }
 
 /* Cards / Containers */
 .card, .product-item, .service-item, .team-item {
@@ -49,30 +71,22 @@ a:hover {
 }
 
 /* Text colors */
-.text-dark {
-    color: var(--light) !important;
-}
-
-.text-muted {
-    color: #9aa0a6 !important;
-}
+.text-dark { color: var(--light) !important; }
+.text-muted { color: #9aa0a6 !important; }
 
 /* Buttons */
 .btn-primary {
     background-color: var(--primary);
     border-color: var(--primary);
 }
-
 .btn-primary:hover {
     background-color: #7fc8ff;
     border-color: #7fc8ff;
 }
-
 .btn-secondary {
     background-color: #1f2933;
     border-color: #1f2933;
 }
-
 .btn-secondary:hover {
     background-color: #26323f;
     border-color: #26323f;
@@ -93,17 +107,8 @@ a:hover {
     100% { transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); }
 }
 
-#spinner {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .5s ease-out, visibility 0s linear .5s;
-    z-index: 99999;
-}
-
-#spinner.show {
-    visibility: visible;
-    opacity: 1;
-}
+#spinner { opacity: 0; visibility: hidden; transition: opacity .5s ease-out, visibility 0s linear .5s; z-index: 99999; }
+#spinner.show { visibility: visible; opacity: 1; }
 
 /*** Heading Weights ***/
 h1, h2, .fw-bold { font-weight: 800 !important; }
@@ -111,28 +116,16 @@ h3, h4, .fw-semi-bold { font-weight: 700 !important; }
 h5, h6, .fw-medium { font-weight: 600 !important; }
 
 /*** Button Base ***/
-.btn {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 600;
-    transition: .5s;
-}
-
-.btn-primary, .btn-secondary {
-    color: #FFFFFF;
-    box-shadow: inset 0 0 0 50px transparent;
-}
-
+.btn { font-family: 'Nunito', sans-serif; font-weight: 600; transition: .5s; }
+.btn-primary, .btn-secondary { color: #FFFFFF; box-shadow: inset 0 0 0 50px transparent; }
 .btn-primary:hover { box-shadow: inset 0 0 0 0 var(--primary); }
 .btn-secondary:hover { box-shadow: inset 0 0 0 0 var(--secondary); }
 
 /*** Navbar — DARK CORPORATE ***/
-.navbar-dark {
-    background-color: #0d0f12 !important;
-}
+.navbar-dark { background-color: #0d0f12 !important; }
 
 .navbar-dark .navbar-nav .nav-link {
     font-family: 'Nunito', sans-serif;
-    position: relative;
     margin-left: 25px;
     padding: 35px 0;
     color: #FFFFFF;
@@ -142,33 +135,16 @@ h5, h6, .fw-medium { font-weight: 600 !important; }
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link.active {
-    color: var(--primary);
-}
+.navbar-dark .navbar-nav .nav-link.active { color: var(--primary); }
 
-.navbar-dark .navbar-brand h1 {
-    color: #FFFFFF;
-}
-
-.navbar-dark .navbar-toggler {
-    color: white !important;
-    border-color: white;
-}
+.navbar-dark .navbar-brand h1 { color: #FFFFFF; }
+.navbar-dark .navbar-toggler { color: white !important; border-color: white; }
 
 /* Mobile Navbar Fix */
 @media (max-width: 991.98px) {
-    .sticky-top.navbar-dark {
-        background: #0d0f12 !important;
-    }
-
-    .navbar-dark .navbar-nav .nav-link {
-        padding: 10px 0;
-        color: #ffffff;
-    }
-
-    .navbar-dark .navbar-brand h1 {
-        color: #ffffff;
-    }
+    .sticky-top.navbar-dark { background: #0d0f12 !important; }
+    .navbar-dark .navbar-nav .nav-link { padding: 10px 0; color: #ffffff; }
+    .navbar-dark .navbar-brand h1 { color: #ffffff; }
 }
 
 /* Desktop Navbar */
@@ -182,10 +158,7 @@ h5, h6, .fw-medium { font-weight: 600 !important; }
         z-index: 999;
     }
 
-    .sticky-top.navbar-dark {
-        position: fixed;
-        background: #0d0f12 !important;
-    }
+    .sticky-top.navbar-dark { position: fixed; background: #0d0f12 !important; }
 
     .navbar-dark .navbar-nav .nav-link::before {
         content: "";
@@ -236,9 +209,7 @@ h5, h6, .fw-medium { font-weight: 600 !important; }
     padding: 10px 20px;
 }
 
-.product-item a:hover {
-    background: #7fc8ff;
-}
+.product-item a:hover { background: #7fc8ff; }
 
 /*** Footer — DARK CORPORATE ***/
 .footer {
