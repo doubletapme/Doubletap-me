@@ -1,7 +1,7 @@
-/********** APPLE-INSPIRED MINIMAL THEME — FULL CSS **********/
+/********** APPLE-INSPIRED MINIMAL THEME — FULL CSS (BLUE REMOVED) **********/
 
 :root {
-    --primary: #0071e3; /* Apple blue */
+    --primary: #0071e3; /* Apple blue for text/buttons only */
     --text-dark: #1d1d1f;
     --text-light: #6e6e73;
     --bg-light: #ffffff;
@@ -45,7 +45,7 @@ a:hover {
 
 /*** NAVBAR — DARK (for white logo) ***/
 .navbar-dark {
-    background: #1d1d1f !important; /* Apple dark header */
+    background: #1d1d1f !important;
     border-bottom: none;
 }
 
@@ -67,4 +67,143 @@ a:hover {
     color: var(--primary) !important;
 }
 
-.navbar-dark .navbar-brand img
+.navbar-dark .navbar-brand img {
+    height: 32px;
+    width: auto;
+}
+
+/*** Mobile Navbar ***/
+@media (max-width: 991.98px) {
+    .navbar-dark {
+        background: #1d1d1f !important;
+    }
+    .navbar-dark .navbar-nav .nav-link {
+        padding: 12px 0;
+        color: #ffffff !important;
+    }
+}
+
+/*** Cards / Product Items / Containers ***/
+.product-item, .card, .service-item, .team-item {
+    background: var(--bg-grey);
+    border: none !important;
+    border-radius: var(--radius);
+    padding: 40px;
+    transition: var(--transition);
+}
+
+.product-item:hover,
+.card:hover,
+.service-item:hover,
+.team-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.product-item h4,
+.card h4,
+.service-item h4,
+.team-item h4 {
+    color: var(--text-dark);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.product-item p,
+.card p,
+.service-item p,
+.team-item p {
+    color: var(--text-light);
+    font-size: 16px;
+}
+
+/*** Buttons — Apple Style ***/
+.btn-primary {
+    background: var(--primary);
+    border: none;
+    padding: 12px 26px;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+.btn-primary:hover {
+    opacity: 0.8;
+}
+
+.btn-secondary {
+    background: #e5e5e5;
+    color: var(--text-dark);
+    border-radius: 30px;
+    padding: 12px 26px;
+    border: none;
+}
+.btn-secondary:hover {
+    background: #d0d0d0;
+}
+
+/*** Carousel Caption ***/
+.carousel-caption {
+    background: rgba(255,255,255,0.65);
+    color: var(--text-dark);
+    padding: 40px;
+    border-radius: var(--radius);
+}
+
+/*** Footer — Apple Style (NO BLUE ANYWHERE) ***/
+.footer {
+    background: var(--bg-grey) !important;
+    padding: 40px 0;
+    border-top: 1px solid #e5e5e5;
+}
+
+.footer h4 {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.footer ul li {
+    color: var(--text-light);
+    margin-bottom: 6px;
+}
+
+.footer-bottom {
+    background: var(--bg-grey) !important;
+    color: var(--text-light);
+    padding-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/*** Utility Fix — Remove ALL Blue Backgrounds ***/
+.bg-primary,
+.bg-blue,
+.bg-custom,
+.section-blue {
+    background: var(--bg-grey) !important;
+    color: var(--text-dark) !important;
+}
+
+/*** Text Utilities ***/
+.text-dark { color: var(--text-dark) !important; }
+.text-muted { color: var(--text-light) !important; }
+
+/*** Background Utilities ***/
+.bg-light, .bg-white {
+    background-color: var(--bg-grey) !important;
+    color: var(--text-dark) !important;
+}
+
+/*** Spinner — Minimal Apple Style ***/
+.spinner {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 4px solid #e5e5e5;
+    border-top-color: var(--primary);
+    animation: spin 0.8s linear infinite;
+    margin: 100px auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
