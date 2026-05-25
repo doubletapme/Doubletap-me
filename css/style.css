@@ -1,223 +1,109 @@
-/********** DARK CORPORATE THEME — BASE **********/
+/********** APPLE-INSPIRED MINIMAL THEME — FULL CSS **********/
 
 :root {
-    --primary: #3ea6ff;
-    --secondary: #1f2933;
-    --light: #e5e5e5;
-    --dark: #0d0f12;
-
-    /* Mouse reactive variables */
-    --mx: 0.5;
-    --my: 0.5;
+    --primary: #0071e3; /* Apple blue */
+    --text-dark: #1d1d1f;
+    --text-light: #6e6e73;
+    --bg-light: #ffffff;
+    --bg-grey: #f5f5f7;
+    --radius: 14px;
+    --transition: 0.3s ease;
 }
 
-/* ⚡ Lightning Pulse Animation */
-@keyframes lightningPulse {
-    0% { opacity: 0.35; }
-    50% { opacity: 0.55; }
-    100% { opacity: 0.35; }
-}
-
-/* Base body */
+/*** Base Body ***/
 body {
-    background: var(--dark);
-    color: var(--light);
-    font-family: 'Nunito', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
     line-height: 1.6;
-    position: relative;
-    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
-/* ⚡ STRONG MOUSE‑REACTIVE LIGHTNING BACKGROUND */
+/*** Remove old lightning background ***/
 body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-
-    background-image:
-        /* Strong lightning bursts */
-        radial-gradient(circle at calc(10% + var(--mx) * 25%) calc(15% + var(--my) * 25%), rgba(62,166,255,0.55) 0%, transparent 70%),
-        radial-gradient(circle at calc(90% - var(--mx) * 25%) calc(85% - var(--my) * 25%), rgba(62,166,255,0.50) 0%, transparent 70%),
-        radial-gradient(circle at calc(70% + var(--mx) * 20%) calc(25% + var(--my) * 20%), rgba(62,166,255,0.40) 0%, transparent 75%),
-        radial-gradient(circle at calc(30% - var(--mx) * 20%) calc(75% - var(--my) * 20%), rgba(62,166,255,0.38) 0%, transparent 75%),
-
-        /* Strong lightning streaks */
-        linear-gradient(115deg, rgba(62,166,255,0.35) 0%, transparent 60%),
-        linear-gradient(295deg, rgba(62,166,255,0.32) 0%, transparent 65%),
-        linear-gradient(45deg, rgba(62,166,255,0.28) 0%, transparent 70%),
-        linear-gradient(225deg, rgba(62,166,255,0.25) 0%, transparent 75%),
-
-        /* Glow mesh */
-        linear-gradient(135deg, rgba(62,166,255,0.18) 0%, transparent 80%),
-        linear-gradient(315deg, rgba(62,166,255,0.15) 0%, transparent 85%);
-
-    background-blend-mode: screen;
-    background-attachment: fixed;
-
-    animation: lightningPulse 6s ease-in-out infinite;
+    content: none !important;
 }
 
 /*** Headings ***/
-h1, h2, h3, h4, h5, h6 { color: #ffffff; }
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-dark);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+}
 
 /*** Links ***/
-a { color: var(--primary); transition: 0.3s ease; }
-a:hover { color: #7fc8ff; }
-
-/*** Cards / Containers ***/
-.card, .product-item, .service-item, .team-item {
-    background-color: #111418 !important;
-    border: 1px solid #1f242b !important;
-    color: var(--light);
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+a:hover {
+    opacity: 0.7;
 }
 
-/*** Light backgrounds → convert to dark ***/
-.bg-light, .bg-white {
-    background-color: #111418 !important;
-    color: var(--light) !important;
+/*** Navbar — Apple Style ***/
+.navbar-dark {
+    background: rgba(255,255,255,0.85) !important;
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid #e5e5e5;
 }
-
-/*** Text colors ***/
-.text-dark { color: var(--light) !important; }
-.text-muted { color: #9aa0a6 !important; }
-
-/*** Buttons ***/
-.btn-primary {
-    background-color: var(--primary);
-    border-color: var(--primary);
-}
-.btn-primary:hover {
-    background-color: #7fc8ff;
-    border-color: #7fc8ff;
-}
-.btn-secondary {
-    background-color: #1f2933;
-    border-color: #1f2933;
-}
-.btn-secondary:hover {
-    background-color: #26323f;
-    border-color: #26323f;
-}
-
-/*** Spinner ***/
-.spinner {
-    width: 40px;
-    height: 40px;
-    background: var(--primary);
-    margin: 100px auto;
-    animation: sk-rotateplane 1.2s infinite ease-in-out;
-}
-
-@keyframes sk-rotateplane {
-    0% { transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
-    50% { transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
-    100% { transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); }
-}
-
-/*** Navbar ***/
-.navbar-dark { background-color: #0d0f12 !important; }
 
 .navbar-dark .navbar-nav .nav-link {
-    margin-left: 25px;
-    padding: 35px 0;
-    color: #FFFFFF;
-    font-size: 18px;
-    font-weight: 600;
-    transition: .5s;
+    padding: 18px 0;
+    margin-left: 20px;
+    color: var(--text-dark);
+    font-size: 15px;
+    font-weight: 500;
+    transition: var(--transition);
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link.active { color: var(--primary); }
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--primary);
+}
 
-.navbar-dark .navbar-brand h1 { color: #FFFFFF; }
-.navbar-dark .navbar-toggler { color: white !important; border-color: white; }
+.navbar-dark .navbar-brand h1 {
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 20px;
+}
 
-/* Mobile Navbar */
+.navbar-dark .navbar-toggler {
+    color: var(--text-dark) !important;
+    border-color: var(--text-dark);
+}
+
+/*** Mobile Navbar ***/
 @media (max-width: 991.98px) {
-    .sticky-top.navbar-dark { background: #0d0f12 !important; }
-    .navbar-dark .navbar-nav .nav-link { padding: 10px 0; color: #ffffff; }
-    .navbar-dark .navbar-brand h1 { color: #ffffff; }
-}
-
-/* Desktop Navbar */
-@media (min-width: 992px) {
     .navbar-dark {
-        position: absolute;
-        width: 100%;
-        top: 0;
-        left: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, .1);
-        z-index: 999;
+        background: rgba(255,255,255,0.95) !important;
     }
-
-    .sticky-top.navbar-dark { position: fixed; background: #0d0f12 !important; }
-
-    .navbar-dark .navbar-nav .nav-link::before {
-        content: "";
-        width: 0;
-        height: 2px;
-        bottom: -1px;
-        left: 50%;
-        background: var(--primary);
-        position: absolute;
-        transition: .5s;
-    }
-
-    .navbar-dark .navbar-nav .nav-link:hover::before,
-    .navbar-dark .navbar-nav .nav-link.active::before {
-        width: 100%;
-        left: 0;
+    .navbar-dark .navbar-nav .nav-link {
+        padding: 12px 0;
+        color: var(--text-dark);
     }
 }
 
-/*** Carousel ***/
-.carousel-caption {
-    background: rgba(0, 0, 0, 0.55);
-    top: 0; left: 0; right: 0; bottom: 0;
+/*** Cards / Product Items / Containers ***/
+.product-item, .card, .service-item, .team-item {
+    background: var(--bg-grey);
+    border: none !important;
+    border-radius: var(--radius);
+    padding: 40px;
+    transition: var(--transition);
 }
 
-/*** Product Section ***/
-.product-item {
-    background-color: #111418 !important;
-    border: 1px solid #1f242b !important;
-    color: var(--light);
-    padding: 30px;
-    border-radius: 10px;
-    transition: 0.3s ease-in-out;
+.product-item:hover,
+.card:hover,
+.service-item:hover,
+.team-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
 }
 
-.product-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
-}
-
-.product-item h4 { color: #ffffff; }
-.product-item p { color: #cfd3da; }
-
-.product-item a {
-    background: var(--primary);
-    color: #fff;
-    border-radius: 5px;
-    padding: 10px 20px;
-}
-.product-item a:hover { background: #7fc8ff; }
-
-/*** Footer ***/
-.footer {
-    background-color: #05070a;
-    border-top: 1px solid #1f242b;
-}
-
-.footer h4 { color: #ffffff; }
-.footer ul li { color: #9aa0a6; }
-
-.footer-bottom {
-    color: #6f7680;
-    text-align: center;
-    padding-top: 10px;
-}
+.product-item h4,
+.card h4,
+.service-item h4,
+.team-item
