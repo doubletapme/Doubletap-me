@@ -43,17 +43,20 @@ a:hover {
     opacity: 0.7;
 }
 
-/*** Navbar — Apple Style ***/
+/*** NAVBAR — DARK (for white logo) ***/
 .navbar-dark {
-    background: rgba(255,255,255,0.85) !important;
-    backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid #e5e5e5;
+    background: #1d1d1f !important; /* Apple dark header */
+    border-bottom: none;
+}
+
+.navbar-dark .navbar-brand h1,
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff !important;
 }
 
 .navbar-dark .navbar-nav .nav-link {
     padding: 18px 0;
     margin-left: 20px;
-    color: var(--text-dark);
     font-size: 15px;
     font-weight: 500;
     transition: var(--transition);
@@ -61,49 +64,7 @@ a:hover {
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
-    color: var(--primary);
+    color: var(--primary) !important;
 }
 
-.navbar-dark .navbar-brand h1 {
-    color: var(--text-dark);
-    font-weight: 600;
-    font-size: 20px;
-}
-
-.navbar-dark .navbar-toggler {
-    color: var(--text-dark) !important;
-    border-color: var(--text-dark);
-}
-
-/*** Mobile Navbar ***/
-@media (max-width: 991.98px) {
-    .navbar-dark {
-        background: rgba(255,255,255,0.95) !important;
-    }
-    .navbar-dark .navbar-nav .nav-link {
-        padding: 12px 0;
-        color: var(--text-dark);
-    }
-}
-
-/*** Cards / Product Items / Containers ***/
-.product-item, .card, .service-item, .team-item {
-    background: var(--bg-grey);
-    border: none !important;
-    border-radius: var(--radius);
-    padding: 40px;
-    transition: var(--transition);
-}
-
-.product-item:hover,
-.card:hover,
-.service-item:hover,
-.team-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-}
-
-.product-item h4,
-.card h4,
-.service-item h4,
-.team-item
+.navbar-dark .navbar-brand img
