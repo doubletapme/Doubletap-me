@@ -207,3 +207,10 @@ a:hover {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
